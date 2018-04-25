@@ -12,6 +12,7 @@
 		3EDED7962090B3680006268F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDED7942090B3680006268F /* Main.storyboard */; };
 		3EDED7982090B36C0006268F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EDED7972090B36C0006268F /* Assets.xcassets */; };
 		3EDED79B2090B36C0006268F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EDED7992090B36C0006268F /* LaunchScreen.storyboard */; };
+		B46FA62DE4464B30FF29F8C3 /* Pods_EzDealzDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB2D9F3B28F399B2F659D258 /* Pods_EzDealzDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		3EDED7972090B36C0006268F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EDED79A2090B36C0006268F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EDED79C2090B36C0006268F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78C0F9CD7AFC08B09D0F8BC9 /* Pods-EzDealzDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzDealzDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EzDealzDemo/Pods-EzDealzDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DAF8ADC6824075C22FC1BB71 /* Pods-EzDealzDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzDealzDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EzDealzDemo/Pods-EzDealzDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EB2D9F3B28F399B2F659D258 /* Pods_EzDealzDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzDealzDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46FA62DE4464B30FF29F8C3 /* Pods_EzDealzDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				3EDED78F2090B3680006268F /* EzDealzDemo */,
 				3EDED78E2090B3680006268F /* Products */,
+				51172A107D2701696EC275CF /* Pods */,
+				D0DA824A9DE09B0FDE17E1C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = EzDealzDemo;
 			sourceTree = "<group>";
 		};
+		51172A107D2701696EC275CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAF8ADC6824075C22FC1BB71 /* Pods-EzDealzDemo.debug.xcconfig */,
+				78C0F9CD7AFC08B09D0F8BC9 /* Pods-EzDealzDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0DA824A9DE09B0FDE17E1C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB2D9F3B28F399B2F659D258 /* Pods_EzDealzDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3EDED79F2090B36C0006268F /* Build configuration list for PBXNativeTarget "EzDealzDemo" */;
 			buildPhases = (
+				AEFBAEF980063267B82A4B96 /* [CP] Check Pods Manifest.lock */,
 				3EDED7892090B3680006268F /* Sources */,
 				3EDED78A2090B3680006268F /* Frameworks */,
 				3EDED78B2090B3680006268F /* Resources */,
+				DCF619E51488AF2CB45084F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AEFBAEF980063267B82A4B96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EzDealzDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCF619E51488AF2CB45084F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EzDealzDemo/Pods-EzDealzDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EzDealzDemo/Pods-EzDealzDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3EDED7892090B3680006268F /* Sources */ = {
@@ -278,15 +345,13 @@
 		};
 		3EDED7A02090B36C0006268F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAF8ADC6824075C22FC1BB71 /* Pods-EzDealzDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFW29W59H3;
 				INFOPLIST_FILE = EzDealzDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk.EzDealzDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +361,13 @@
 		};
 		3EDED7A12090B36C0006268F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78C0F9CD7AFC08B09D0F8BC9 /* Pods-EzDealzDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BFW29W59H3;
 				INFOPLIST_FILE = EzDealzDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mk.EzDealzDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
