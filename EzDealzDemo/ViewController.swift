@@ -12,9 +12,7 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
-    let loginURL = "http://www.ezdealz.com/main/doLogin"
     let signupURL = "http://www.ezdealz.com/main/doSignup"
-    let testURL = "http://www.ezdealz.com/main/testMobile"
     let countryURL = "http://www.ezdealz.com/main/country_list"
 
     override func viewDidLoad() {
