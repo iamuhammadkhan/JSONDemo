@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     private func country() {
         
-        let params = [ "language_id" : "1" ]
+        let params: Parameters = [ "language_id" : "1" ]
         
         Alamofire.request(countryURL, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             
@@ -45,8 +45,8 @@ class ViewController: UIViewController {
     
     private func signup() {
         
-        let params = [ "fname" : "MK",
-                       "email" : "mytest@gmail.com",
+        let params: Parameters = [ "fname" : "MK",
+                       "email" : "mytest1@gmail.com",
                        "password" : "123456",
                        "phone" : "03338222120",
                        "address" : "Gulistan e Johar",
