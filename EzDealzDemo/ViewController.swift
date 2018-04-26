@@ -8,33 +8,36 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
     let loginURL = "http://www.ezdealz.com/main/doLogin"
     let signupURL = "http://www.ezdealz.com/main/doSignup"
+    let testURL = "http://www.ezdealz.com/main/testMobile"
+    let countryURL = "http://www.ezdealz.com/main/country_list"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        login()
+        country()
         signup()
     }
-
-    private func login() {
+    
+    private func country() {
         
-        let params: Parameters = [ "email" : "mk@gmail.com",
-                                   "password" : "123456",
-                                   "app_type" : "ios",
-                                   "app_token" : "1234567890" ]
+        let params = [ "language_id" : "1" ]
         
-        Alamofire.request(loginURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response { (response) in
+        Alamofire.request(countryURL, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            
+            print("Initial Response: ", response)
+            
             if let error = response.error {
-                print("Network Error: ", error)
+                print("Network Error: \(error)")
             } else {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as! [String: AnyObject]
-                    print(json)
+                    let json = try JSON(data: response.data!)
+                    print("Response: ", json)
                 } catch {
                     print("Catch Error: ", error)
                 }
@@ -44,30 +47,34 @@ class ViewController: UIViewController {
     
     private func signup() {
         
-        let params: Parameters = [ "fname" : "MK",
-                                   "email" : "mk@gmail.com",
-                                   "password" : "123456",
-                                   "phone" : "03338222120",
-                                   "address" : "Gulistan e Johar",
-                                   "city" : "Karachi",
-                                   "dob" : "1234",
-                                   "gender" : "male",
-                                   "app_token" : "1234567890",
-                                   "app_type" : "ios" ]
+        let params = [ "fname" : "MK",
+                       "email" : "mytest@gmail.com",
+                       "password" : "123456",
+                       "phone" : "03338222120",
+                       "address" : "Gulistan e Johar",
+                       "city" : "1",
+                       "dob" : "1234",
+                       "gender" : "male",
+                       "app_token" : "1234567890",
+                       "app_type" : "ios" ]
         
-        Alamofire.request(signupURL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).response { (response) in
+        Alamofire.request(signupURL, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            
+            print("Initial Response: ", response)
+            print("Initial Response Result: ", response.result)
+            print("Initial Response Result Value: ", response.result.value!)
+            
             if let error = response.error {
-                print("Network Error: ", error)
+                print("Network Error: \(error)")
             } else {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: response.data!, options: .allowFragments) as! [String: AnyObject]
-                    print(json)
+                    let json = try JSON(data: response.data!)
+                    print("Response: ", json)
                 } catch {
                     print("Catch Error: ", error)
                 }
             }
         }
     }
-    
 }
 
