@@ -36,6 +36,18 @@ class ViewController: UIViewController {
                 do {
                     let json = try JSON(data: response.data!)
                     print("Response: ", json)
+                    let countries = json["country"].arrayValue
+                    for country in countries {
+                        let name = country["name"].stringValue
+                        let id = country["id"].stringValue
+                        let code = country["code"].stringValue
+                        let flag = country["flag"].stringValue
+                        
+                        print("Name: ", name)
+                        print("ID: ", id)
+                        print("Code: ", code)
+                        print("Flag: ", flag)
+                    }
                 } catch {
                     print("Catch Error: ", error)
                 }
@@ -46,7 +58,7 @@ class ViewController: UIViewController {
     private func signup() {
         
         let params: Parameters = [ "fname" : "MK",
-                       "email" : "mytest1@gmail.com",
+                       "email" : "mytest2@gmail.com",
                        "password" : "123456",
                        "phone" : "03338222120",
                        "address" : "Gulistan e Johar",
